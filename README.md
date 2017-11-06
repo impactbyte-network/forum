@@ -13,13 +13,13 @@ Impact Byte's mission is to educate people through technology to move humanity f
 
 ## Other Versions
 
-- Amir: [Rembug](https://github.com/amirul-inc/rembug)
-- Andrew: [Talk.fm](https://github.com/andreewww56/talk.fm)
-- Arian: [Jiibu](https://github.com/arian77/jiibu)
-- Hafidz: [Answora](https://github.com/hafidziapermana/answora)
-- Huda: [Muntada](https://github.com/elqahtani/muntada)
-- Thoriq: [Sinau](https://github.com/thoriqnf/sinau)
-- Yonatan: [?](https://github.com/joodroid)
+- [Amir](https://www.quora.com/profile/Amirul-Fattah) ➜ [Rembug](https://github.com/amirul-inc/rembug)
+- [Andrew](https://www.quora.com/profile/Andrew-Andrew-544) ➜ [Talk.fm](https://github.com/andreewww56/talk.fm)
+- [Arian](https://www.quora.com/profile/Arian-Markus) ➜ [Jiibu](https://github.com/arian77/jiibu)
+- [Hafidz](https://www.quora.com/profile/Hafidz-Ilham-Aji-Permana) ➜ [Answora](https://github.com/hafidziapermana/answora)
+- [Huda](https://www.quora.com/profile/Ahmed-Alqahtani) ➜ [Muntada](https://github.com/elqahtani/muntada)
+- [Thoriq](https://www.quora.com/profile/Thoriq-Nur-Faizal) ➜ [Sinau](https://github.com/thoriqnf/sinau)
+- [Yonatan](https://www.quora.com/profile/Yonatan-Putra-Widjojo) ➜ [Dapresvous](https://github.com/joodroid/dapresvous)
 
 ## Project Structure
 
@@ -41,19 +41,19 @@ Impact Byte's mission is to educate people through technology to move humanity f
 
 ### Level 1
 
-- Build the initial API: CRUD/BREAD functionalities
+- Build the initial API ➜ CRUD/BREAD functionalities
 - Integrate the API gradually with the UI
 - Add data input validation
 
 ### Level 2
 
-- Build the authentication: basic or OAuth
+- Build the authentication ➜ basic or OAuth
 - Build the account confirmation system
 - Build the forgot password system
 
 ### Level 3
 
-- Add other systems: analytics, logging, payment, etc
+- Add other systems ➜ analytics, logging, payment, etc
 - Optimize for responsive design
 
 ### Level 4
