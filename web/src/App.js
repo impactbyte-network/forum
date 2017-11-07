@@ -10,6 +10,9 @@ import Question from "./pages/Question"
 import Profile from "./pages/Profile"
 import Ask from "./pages/Ask"
 
+import Profiles from "./pages/Profiles"
+import Questions from "./pages/Questions"
+
 const App = () => (
   <Router>
     <Layout>
@@ -19,6 +22,8 @@ const App = () => (
       <Route path="/question/:id" component={Question} />
       <Route path="/profile/:id" component={Profile} />
       <Route path="/ask" component={Ask} />
+      <Route path="/profiles" component={Profiles} />
+      <Route path="/questions" component={Questions} />
     </Layout>
   </Router>
 )

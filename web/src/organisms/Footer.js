@@ -7,7 +7,9 @@ const style = {
 
 const Footer = () => (
   <div style={style}>
-    <small>2017 &copy; Impact Byte Forum</small>
+    <small>
+      <p>2017 &copy; Impact Byte Forum</p>
+    </small>
   </div>
 )
 

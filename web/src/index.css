@@ -10,9 +10,9 @@ a {
 
 a,
 a:visited {
-  color: blue;
+  color: black;
 }
 
 a.active {
-  font-weight: bold;
+  color: red;
 }
