@@ -1,19 +1,21 @@
 import React from "react"
-import { Link } from "react-router-dom"
 
 import DATA_PROFILES from "../data/profiles"
 
-const Profile = () => (
+const Profile = props => (
   <div>
-    <ul>
-      {DATA_PROFILES.map(profile => {
-        return (
-          <li>
-            <Link to={`/profile/${profile._id}`}>{profile.name}</Link>
-          </li>
-        )
-      })}
-    </ul>
+    {DATA_PROFILES.filter(profile => {
+      return profile._id === Number(props.match.params.id)
+    }).map(profile => {
+      return (
+        <div key={profile._id}>
+          <h2>{profile.name}</h2>
+          {profile.title && <h4>{profile.title}</h4>}
+          {profile.bio && <p>{profile.bio}</p>}
+          <small>id: {profile._id}</small>
+        </div>
+      )
+    })}
   </div>
 )
 

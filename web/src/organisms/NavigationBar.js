@@ -5,6 +5,11 @@ const style = {
   borderBottom: "1px solid black"
 }
 
+const USER = {
+  _id: 0,
+  name: "Administrator"
+}
+
 const Home = () => (
   <nav style={style}>
     <NavLink to="/welcome">Welcome</NavLink>
@@ -12,7 +17,7 @@ const Home = () => (
       Home
     </NavLink>
     <NavLink to="/answer">Answer</NavLink>
-    <NavLink to="/profile">Profile</NavLink>
+    <NavLink to={`/profile/${USER._id}`}>Profile</NavLink>
     <NavLink to="/ask">Ask Question</NavLink>
   </nav>
 )
