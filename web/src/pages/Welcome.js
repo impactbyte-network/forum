@@ -1,15 +1,8 @@
 import React from "react"
-import {
-  Row,
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText
-} from "reactstrap"
+import { Row, Col, Button, Form, FormGroup, Label, Input } from "reactstrap"
 import { Link } from "react-router-dom"
+
+// LOGO
 
 const Logo = () => (
   <h1>
@@ -17,7 +10,11 @@ const Logo = () => (
   </h1>
 )
 
+// TAGLINE
+
 const Tagline = () => <h2>TAGLINE AND DESCRIPTION</h2>
+
+// COLUMN_SIGNUP
 
 const ColumnSignup = () => (
   <Col xs={5}>
@@ -40,6 +37,8 @@ const ColumnSignup = () => (
   </Col>
 )
 
+// COLUMN_LOGIN
+
 const ColumnLogin = () => (
   <Col xs={5}>
     <h3>Login</h3>
@@ -59,6 +58,8 @@ const ColumnLogin = () => (
     </Form>
   </Col>
 )
+
+// WELCOME
 
 const Welcome = () => (
   <div>
