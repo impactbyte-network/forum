@@ -5,7 +5,8 @@ import Layout from "./templates/Layout"
 
 import Welcome from "./pages/Welcome"
 import Home from "./pages/Home"
-import Answers from "./pages/Answers"
+import Answer from "./pages/Answer"
+import Question from "./pages/Question"
 import Profile from "./pages/Profile"
 import Ask from "./pages/Ask"
 
@@ -14,7 +15,8 @@ const App = () => (
     <Layout>
       <Route path="/welcome" component={Welcome} />
       <Route exact path="/" component={Home} />
-      <Route path="/answers" component={Answers} />
+      <Route path="/answer" component={Answer} />
+      <Route path="/question/:id" component={Question} />
       <Route path="/profile" component={Profile} />
       <Route path="/ask" component={Ask} />
     </Layout>

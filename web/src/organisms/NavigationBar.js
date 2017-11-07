@@ -7,7 +7,7 @@ const Home = () => (
     <NavLink exact to="/">
       Home
     </NavLink>
-    <NavLink to="/answers">Answers</NavLink>
+    <NavLink to="/answer">Answer</NavLink>
     <NavLink to="/profile">Profile</NavLink>
     <NavLink to="/ask">Ask Question</NavLink>
   </nav>
