@@ -8,8 +8,11 @@ const Answer = () => (
     <ul>
       {DATA_QUESTIONS.map(question => {
         return (
-          <li key={question.id}>
-            <Link to={`/question/${question.id}`}>{question.title}</Link>
+          <li>
+            <Link to={`/question/${question.id}`}>
+              <h3>{question.title}</h3>{" "}
+            </Link>
+            <small>asked by {question.createdBy.name}</small>
           </li>
         )
       })}
