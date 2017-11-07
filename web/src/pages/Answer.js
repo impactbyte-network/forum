@@ -1,25 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const QUESTIONS_LIST = [
-  {
-    id: 0,
-    title: "Always happy?"
-  },
-  {
-    id: 2,
-    title: "Become hungry?"
-  },
-  {
-    id: 3,
-    title: "Cooling off?"
-  }
-]
+import DATA_QUESTIONS from "../data/questions"
 
 const Answer = () => (
   <div>
     <ul>
-      {QUESTIONS_LIST.map(question => {
+      {DATA_QUESTIONS.map(question => {
         return (
           <li key={question.id}>
             <Link to={`/question/${question.id}`}>{question.title}</Link>

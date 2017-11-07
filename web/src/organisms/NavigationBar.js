@@ -1,8 +1,12 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 
+const style = {
+  borderBottom: "1px solid black"
+}
+
 const Home = () => (
-  <nav>
+  <nav style={style}>
     <NavLink to="/welcome">Welcome</NavLink>
     <NavLink exact to="/">
       Home
