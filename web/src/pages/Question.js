@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import {
+  Row,
   Col,
   Card,
   CardText,
@@ -42,11 +43,9 @@ const Question = props => {
         userName={question[0].createdBy.name}
       />
 
-      {answers.length ? (
-        <div>{answers.length} answers</div>
-      ) : (
-        <div>No answer yet</div>
-      )}
+      <div>
+        {answers.length ? `${answers.length} answers` : `No answer yet`}
+      </div>
 
       <hr />
 
@@ -54,7 +53,6 @@ const Question = props => {
         return (
           <div>
             <h6>{answer.createdBy.name}</h6>
-            <small>Answered DATE</small>
             <p>{answer.text}</p>
             <hr />
           </div>

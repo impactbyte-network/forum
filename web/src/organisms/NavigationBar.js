@@ -4,10 +4,14 @@ import { Row, Col } from "reactstrap"
 
 import Link from "../atoms/Link"
 
+// -----------------------------------------------------------------------------
+
 const USER = {
   _id: 0,
   name: "Administrator"
 }
+
+// -----------------------------------------------------------------------------
 
 const Home = () => (
   <nav
@@ -24,6 +28,7 @@ const Home = () => (
         </NavLink>
         <NavLink to="/answer">Answer</NavLink>
       </Col>
+
       <Col xs={4}>
         <NavLink to={`/profile/${USER._id}`}>Profile</NavLink>
         <NavLink to="/ask">Ask Question</NavLink>
