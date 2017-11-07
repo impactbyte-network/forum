@@ -1,18 +1,17 @@
 import React from "react"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 
-import NavigationBar from "./organisms/NavigationBar"
+import Layout from "./templates/Layout"
 
 import Welcome from "./pages/Welcome"
 import Home from "./pages/Home"
 
 const App = () => (
   <Router>
-    <div>
-      <NavigationBar />
+    <Layout>
       <Route exact path="/" component={Home} />
       <Route path="/welcome" component={Welcome} />
-    </div>
+    </Layout>
   </Router>
 )
 
