@@ -1,7 +1,7 @@
 module.exports = [
   {
     _id: 1,
-    title: "Always happy?",
+    title: "Why do happy people always happy?",
     createdBy: {
       _id: 1,
       name: "M Haidar Hanif"
@@ -28,7 +28,7 @@ module.exports = [
 
   {
     _id: 2,
-    title: "Become hungry?",
+    title: "Why we need to become hungry?",
     createdBy: {
       _id: 2,
       name: "Other User"
@@ -55,10 +55,11 @@ module.exports = [
 
   {
     _id: 3,
-    title: "Cooling off?",
+    title: "Why we are like to cooling off?",
     createdBy: {
       _id: 0,
       name: "M Haidar Hanif"
-    }
+    },
+    answers: []
   }
 ]
