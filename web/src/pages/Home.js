@@ -9,7 +9,7 @@ const Home = () => (
       {DATA_QUESTIONS.map(question => {
         return (
           <li>
-            <Link to={`/question/${question.id}`}>
+            <Link to={`/question/${question._id}`}>
               <h3>{question.title}</h3>{" "}
             </Link>
             <small>asked by {question.createdBy.name}</small>

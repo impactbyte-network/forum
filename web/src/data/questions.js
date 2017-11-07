@@ -1,6 +1,6 @@
 module.exports = [
   {
-    id: 1,
+    _id: 1,
     title: "Always happy?",
     createdBy: {
       _id: 1,
@@ -27,10 +27,10 @@ module.exports = [
   },
 
   {
-    id: 2,
+    _id: 2,
     title: "Become hungry?",
     createdBy: {
-      _id: 3,
+      _id: 2,
       name: "Other User"
     },
     answers: [
@@ -46,7 +46,7 @@ module.exports = [
         _id: 1,
         text: "Some useful answers",
         createdBy: {
-          _id: 3,
+          _id: 2,
           name: "Other User"
         }
       }
@@ -54,7 +54,7 @@ module.exports = [
   },
 
   {
-    id: 3,
+    _id: 3,
     title: "Cooling off?",
     createdBy: {
       _id: 0,
