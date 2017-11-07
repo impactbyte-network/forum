@@ -1,9 +1,9 @@
 # Design
 
-- Welcome
-- Home
-- Ask
-- Answer
-- Question
-- QuestionAnswering
-- Profile
+- [x] Welcome
+- [x] Home
+- [x] Answers
+- [x] Profile
+- [x] Ask
+- [ ] Question
+- [ ] QuestionAnswering
