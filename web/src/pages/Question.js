@@ -1,9 +1,10 @@
 import React from "react"
+import { Col } from "reactstrap"
 
 import DATA_QUESTIONS from "../data/questions"
 
 const Question = props => (
-  <div>
+  <Col>
     {props.match.params.id ? "" : <div>INVALID_ID</div>}
     <h2>
       {DATA_QUESTIONS.filter(question => {
@@ -12,7 +13,7 @@ const Question = props => (
         return question.title
       })}
     </h2>
-  </div>
+  </Col>
 )
 
 export default Question

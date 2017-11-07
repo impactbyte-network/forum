@@ -9,17 +9,15 @@ const USER = {
 }
 
 const Profiles = () => (
-  <div>
-    <ul>
-      {DATA_PROFILES.map(profile => {
-        return (
-          <li>
-            <Link to={`/profile/${profile._id}`}>{profile.name}</Link>
-          </li>
-        )
-      })}
-    </ul>
-  </div>
+  <ul>
+    {DATA_PROFILES.map(profile => {
+      return (
+        <li>
+          <Link to={`/profile/${profile._id}`}>{profile.name}</Link>
+        </li>
+      )
+    })}
+  </ul>
 )
 
 export default Profiles

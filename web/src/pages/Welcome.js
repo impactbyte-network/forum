@@ -17,7 +17,7 @@ const Tagline = () => <h2>TAGLINE AND DESCRIPTION</h2>
 // COLUMN_SIGNUP
 
 const ColumnSignup = () => (
-  <Col xs={5}>
+  <Col xs={6}>
     <h3>Sign Up</h3>
     <Form>
       <FormGroup>
@@ -40,7 +40,7 @@ const ColumnSignup = () => (
 // COLUMN_LOGIN
 
 const ColumnLogin = () => (
-  <Col xs={5}>
+  <Col xs={6}>
     <h3>Login</h3>
     <Form>
       <FormGroup>

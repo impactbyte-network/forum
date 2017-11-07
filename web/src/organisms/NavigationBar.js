@@ -1,13 +1,13 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 
-const style = {
-  borderBottom: "1px solid black"
-}
-
 const USER = {
   _id: 0,
   name: "Administrator"
+}
+
+const style = {
+  borderBottom: "1px solid black"
 }
 
 const Home = () => (
