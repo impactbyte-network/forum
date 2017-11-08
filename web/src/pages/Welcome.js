@@ -4,37 +4,37 @@ import { Row, Col } from "reactstrap"
 import ColumnSignup from "../organisms/ColumnSignup"
 import ColumnLogin from "../organisms/ColumnLogin"
 
-const Logo = () => (
-  <h1>
-    <img src="" alt="LOGO" />
-  </h1>
-)
+import helpers from "../helpers"
 
-const Tagline = () => <h2>TAGLINE AND DESCRIPTION</h2>
+export default class Welcome extends React.Component {
+  componentWillMount() {
+    helpers.deleteToken()
+  }
 
-// WELCOME
+  render() {
+    return (
+      <div>
+        <Row className="text-center" id="row-logo">
+          <Col>
+            <h1>
+              <img src="" alt="LOGO" />
+            </h1>
+          </Col>
+        </Row>
 
-const Welcome = () => (
-  <div>
-    <Row className="text-center" id="row-logo">
-      <Col>
-        <Logo />
-      </Col>
-    </Row>
+        <Row className="text-center" id="row-tagline">
+          <Col>
+            <h2>TAGLINE AND DESCRIPTION</h2>
+          </Col>
+        </Row>
 
-    <Row className="text-center" id="row-tagline">
-      <Col>
-        <Tagline />
-      </Col>
-    </Row>
+        <hr />
 
-    <hr />
-
-    <Row className="center" id="row-auth">
-      <ColumnSignup />
-      <ColumnLogin />
-    </Row>
-  </div>
-)
-
-export default Welcome
+        <Row className="center" id="row-auth">
+          <ColumnSignup />
+          <ColumnLogin />
+        </Row>
+      </div>
+    )
+  }
+}

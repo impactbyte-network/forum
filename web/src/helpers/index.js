@@ -10,6 +10,10 @@ const helpers = {
     return token
   },
 
+  deleteToken: () => {
+    window.localStorage.removeItem("user")
+  },
+
   decodeToken: () => {
     const token = helpers.getToken() || ""
 

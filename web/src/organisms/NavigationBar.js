@@ -19,22 +19,32 @@ const Home = () => (
     }}
   >
     <Row>
-      <Col xs={12} md={7}>
-        <Link to="/">LOGO</Link>
-        <NavLink to="/welcome">Welcome</NavLink>
-        <NavLink exact to="/">
-          Home
-        </NavLink>
-        <NavLink to="/answer">Answer</NavLink>
-      </Col>
+      {!USER && (
+        <Col xs={12} md={7}>
+          <Link to="/">LOGO</Link>
+          <NavLink to="/welcome">Welcome</NavLink>
+        </Col>
+      )}
 
-      <Col xs={12} md={5}>
-        {USER && <NavLink to={`/profile/${USER.id}`}>Profile</NavLink>}
-        <NavLink to="/ask">Ask Question</NavLink>
-        <NavLink to="/profiles">[P]</NavLink>
-        <NavLink to="/questions">[Q]</NavLink>
-        {USER && <NavLink to={`/welcome`}>Logout</NavLink>}
-      </Col>
+      {USER && (
+        <Col xs={12} md={7}>
+          <Link to="/">LOGO</Link>
+          <NavLink exact to="/">
+            Home
+          </NavLink>
+          <NavLink to="/answer">Answer</NavLink>
+        </Col>
+      )}
+
+      {USER && (
+        <Col xs={12} md={5}>
+          <NavLink to={`/profile/${USER.id}`}>Profile</NavLink>
+          <NavLink to="/ask">Ask Question</NavLink>
+          <NavLink to="/profiles">[P]</NavLink>
+          <NavLink to="/questions">[Q]</NavLink>
+          <NavLink to={`/welcome`}>Logout</NavLink>
+        </Col>
+      )}
     </Row>
   </nav>
 )

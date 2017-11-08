@@ -1,19 +1,44 @@
 import React from "react"
+import axios from "axios"
 
 import LinkToProfile from "../atoms/LinkToProfile"
 
-import DATA_PROFILES from "../data/profiles"
+export default class Profiles extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      profiles: []
+    }
+  }
 
-const Profiles = () => (
-  <ul>
-    {DATA_PROFILES.map(profile => {
-      return (
-        <li>
-          <LinkToProfile user={profile} />
-        </li>
-      )
-    })}
-  </ul>
-)
+  componentWillMount() {
+    const id = Number(this.props.match.params.id)
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/users`)
+      .then(response => {
+        const profiles = response.data
+        console.log(profiles)
+        this.setState({
+          profiles: profiles
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
-export default Profiles
+  render() {
+    const profiles = this.state.profiles
+    return (
+      <ul>
+        {profiles.map(profile => {
+          return (
+            <li key={profile.id}>
+              <LinkToProfile user={profile} />{" "}
+            </li>
+          )
+        })}
+      </ul>
+    )
+  }
+}

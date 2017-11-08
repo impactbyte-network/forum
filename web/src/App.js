@@ -14,6 +14,8 @@ import NotFound from "./pages/NotFound"
 import Profiles from "./pages/Profiles"
 import Questions from "./pages/Questions"
 
+// const USER = helpers.decodeToken()
+
 const App = () => (
   <Router>
     <Layout>
