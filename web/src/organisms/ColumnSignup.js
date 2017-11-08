@@ -13,6 +13,7 @@ export default class ColumnSignup extends React.Component {
     const value = event.target.value
 
     this.setState({
+      ...this.state,
       [name]: value
     })
   }
