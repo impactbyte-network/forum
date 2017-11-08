@@ -5,14 +5,20 @@ const logger = require("morgan")
 const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
 
+const mongoose = require("mongoose")
+const jwt = require("jsonwebtoken") // used to create, sign, and verify tokens
+
+const config = require("./config") // get our config file
+
+mongoose.connect(config.database) // connect to MongoDB
+
 const index = require("./routes/index")
 const users = require("./routes/users")
 const questions = require("./routes/questions")
 
 const app = express()
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.set("appSecret", config.secret)
 app.use(logger("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
