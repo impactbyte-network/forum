@@ -1,11 +1,30 @@
-module.exports = {
+import jwt_decode from "jwt-decode"
+
+const helpers = {
   setToken: token => {
     window.localStorage.setItem("user", token)
-    console.log(token)
   },
+
   getToken: () => {
     const token = window.localStorage.getItem("user")
-    console.log(token)
     return token
+  },
+
+  decodeToken: () => {
+    const token = helpers.getToken() || ""
+
+    if (token !== "") {
+      const decoded = jwt_decode(token)
+      return {
+        _id: decoded._id,
+        name: decoded.name
+      }
+    } else {
+      return {
+        message: "invalid_token"
+      }
+    }
   }
 }
+
+export default helpers

@@ -41,10 +41,17 @@ export default class ColumnLogin extends React.Component {
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/login`, payload)
       .then(response => {
-        helpers.setToken(response.data)
-        this.setState(initialState)
+        if (response.data.token) {
+          console.log(response.data)
+          helpers.setToken(response.data.token)
+          this.setState(initialState)
+          alert(`Login success!`)
+        } else {
+          throw new Error()
+        }
       })
       .catch(error => {
+        alert(`${error}`)
         console.log(error)
       })
   }

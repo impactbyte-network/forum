@@ -4,12 +4,11 @@ import { Row, Col } from "reactstrap"
 
 import Link from "../atoms/Link"
 
+import helpers from "../helpers"
+
 // -----------------------------------------------------------------------------
 
-const USER = {
-  _id: 0,
-  name: "Administrator"
-}
+const USER = helpers.decodeToken()
 
 // -----------------------------------------------------------------------------
 

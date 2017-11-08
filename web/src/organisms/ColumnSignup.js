@@ -39,10 +39,11 @@ export default class ColumnSignup extends React.Component {
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/signup`, payload)
       .then(response => {
-        alert(`SIGN UP SUCCESS!`)
         this.setState(initialState)
+        alert(`Sign up success!`)
       })
       .catch(error => {
+        alert(`${error}`)
         console.log(error)
       })
   }

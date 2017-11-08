@@ -9,6 +9,7 @@ module.exports = {
   },
 
   // SIGN UP WITH A NEW USER DATA
+
   signup: (req, res, next) => {
     const newUser = new User({
       email: req.body.email,
@@ -34,17 +35,42 @@ module.exports = {
   },
 
   // LOGIN WITH PROVIDED USER DATA
-  login: (req, res, next) => {
-    const data = { email: req.body.email }
-    const token = jwt.sign(data, process.env.SECRET, { expiresIn: "1d" })
 
-    res.send(token)
+  login: (req, res, next) => {
+    User.findOne(
+      {
+        email: req.body.email,
+        password: req.body.password
+      },
+      (err, user) => {
+        if (err) {
+          res.status(500).send({
+            message: "Error when login"
+          })
+        } else if (user === null) {
+          res.status(400).send({
+            message: "User is not found or password is not match"
+          })
+        } else {
+          const data = {
+            _id: user._id,
+            id: user.id,
+            email: user.email
+          }
+          const token = jwt.sign(data, process.env.SECRET, { expiresIn: "1d" })
+          res.send({
+            token: token,
+            data: data
+          })
+        }
+      }
+    )
   },
 
   // CHECK TOKEN FOR AUTHORIZATION
+
   checkToken: (req, res, next) => {
     const decoded = jwt.verify(req.body.token, process.env.SECRET)
-
     res.send(decoded)
   }
 }
