@@ -7,7 +7,11 @@ import axios from "axios"
 export default class ColumnLogin extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      loginName: "",
+      loginEmail: "",
+      loginPassword: ""
+    }
   }
 
   handleChange = event => {

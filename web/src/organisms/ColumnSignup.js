@@ -5,7 +5,11 @@ import axios from "axios"
 export default class ColumnSignup extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      signupName: "",
+      signupEmail: "",
+      signupPassword: ""
+    }
   }
 
   handleChange = event => {
@@ -13,7 +17,6 @@ export default class ColumnSignup extends React.Component {
     const value = event.target.value
 
     this.setState({
-      ...this.state,
       [name]: value
     })
   }
