@@ -5,10 +5,10 @@ import DATA_PROFILES from "../data/profiles"
 const Profile = props => (
   <div>
     {DATA_PROFILES.filter(profile => {
-      return profile._id === Number(props.match.params.id)
+      return profile.id === Number(props.match.params.id)
     }).map(profile => {
       return (
-        <div key={profile._id}>
+        <div key={profile.id}>
           <h2>{profile.name}</h2>
           {profile.title && <h4>{profile.title}</h4>}
           {profile.bio && <p>{profile.bio}</p>}

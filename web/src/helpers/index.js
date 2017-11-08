@@ -17,6 +17,7 @@ const helpers = {
       const decoded = jwt_decode(token)
       return {
         _id: decoded._id,
+        id: decoded.id,
         name: decoded.name
       }
     } else {
