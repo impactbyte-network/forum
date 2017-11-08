@@ -6,6 +6,9 @@
     "start": "node index",
     "dev": "nodemon index"
   },
+  "engines": {
+    "node": "8.0.0"
+  },
   "dependencies": {
     "body-parser": "^1.18.2",
     "cookie-parser": "~1.4.3",

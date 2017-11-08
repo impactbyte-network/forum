@@ -1,0 +1,7 @@
+{
+  "name": "Impact Byte Forum API",
+  "description": "Impact Byte Forum API",
+  "repository": "https://github.com/impacbyte/forum",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
