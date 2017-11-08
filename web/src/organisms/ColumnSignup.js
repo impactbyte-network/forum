@@ -27,7 +27,7 @@ export default class ColumnSignup extends React.Component {
     }
 
     axios
-      .post(`http://localhost:1337/auth/signup`, payload)
+      .post(`${process.env.REACT_APP_API_URL}/auth/signup`, payload)
       .then(response => {
         console.log(response.data)
         alert(`SUCCESS! ${JSON.stringify(response.data)}`)

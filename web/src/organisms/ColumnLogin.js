@@ -28,7 +28,7 @@ export default class ColumnLogin extends React.Component {
     }
 
     axios
-      .post(`http://localhost:1337/auth/login`, payload)
+      .post(`${process.env.REACT_APP_API_URL}/auth/login`, payload)
       .then(response => {
         console.log(response.data)
 
