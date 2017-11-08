@@ -14,7 +14,7 @@ const Question = props => {
 
   return (
     <Col>
-      <QuestionCard title={question[0].title} user={question[0].createdBy} />
+      <QuestionCard question={question[0]} />
 
       <hr />
 

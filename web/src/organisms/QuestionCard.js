@@ -1,29 +1,18 @@
 import React from "react"
-import {
-  Card,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button
-} from "reactstrap"
+import { CardBody, CardTitle, CardSubtitle } from "reactstrap"
+
+import AnswerCard from "../molecules/AnswerCard"
 
 import LinkToProfile from "../atoms/LinkToProfile"
 
 const QuestionCard = props => (
-  <Card>
-    <CardBody>
-      <CardTitle>{props.title}</CardTitle>
-      <CardSubtitle>
-        Asked by <LinkToProfile user={props.user} />
-      </CardSubtitle>
-      <CardText>
-        <Button color="primary" size="sm">
-          Answer
-        </Button>
-      </CardText>
-    </CardBody>
-  </Card>
+  <CardBody>
+    <CardTitle>{props.question.title}</CardTitle>
+    <CardSubtitle>
+      Asked by <LinkToProfile user={props.question.createdBy} />
+    </CardSubtitle>
+    <AnswerCard question={props.question} />
+  </CardBody>
 )
 
 export default QuestionCard

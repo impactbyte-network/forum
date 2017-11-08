@@ -1,6 +1,8 @@
 import React from "react"
 import { Button, Form, FormGroup, Input } from "reactstrap"
 
+import LinkToProfile from "../atoms/LinkToProfile"
+
 const USER = {
   _id: 0,
   name: "Administrator"
@@ -8,7 +10,9 @@ const USER = {
 
 const Ask = () => (
   <Form>
-    <span>{USER.name} asked</span>
+    <h6>
+      <LinkToProfile user={USER} /> asked
+    </h6>
     <FormGroup>
       <Input
         type="textarea"
