@@ -1,4 +1,5 @@
 import React from "react"
+import { withRouter } from "react-router-dom"
 import { Col, Form, FormGroup, Label, Input } from "reactstrap"
 import axios from "axios"
 
@@ -11,7 +12,7 @@ const initialState = {
   loginPassword: ""
 }
 
-export default class ColumnLogin extends React.Component {
+class ColumnLogin extends React.Component {
   constructor(props) {
     super(props)
     this.state = initialState
@@ -45,7 +46,10 @@ export default class ColumnLogin extends React.Component {
           console.log(response.data)
           helpers.setToken(response.data.token)
           this.setState(initialState)
+          // NOTIFY VISITOR
           alert(`Login success!`)
+          // REDIRECT TO HOME
+          this.props.history.push("/")
         } else {
           throw new Error()
         }
@@ -92,3 +96,5 @@ export default class ColumnLogin extends React.Component {
     )
   }
 }
+
+export default withRouter(ColumnLogin)

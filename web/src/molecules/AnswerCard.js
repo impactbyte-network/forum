@@ -16,7 +16,7 @@ const USER = {
   name: "Administrator"
 }
 
-class AnswerCard extends React.Component {
+export default class AnswerCard extends React.Component {
   constructor(props) {
     super(props)
     this.toggle = this.toggle.bind(this)
@@ -64,5 +64,3 @@ class AnswerCard extends React.Component {
     )
   }
 }
-
-export default AnswerCard

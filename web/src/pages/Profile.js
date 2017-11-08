@@ -1,22 +1,38 @@
 import React from "react"
+import axios from "axios"
 
-import DATA_PROFILES from "../data/profiles"
+export default class Profile extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      profile: {}
+    }
+  }
 
-const Profile = props => (
-  <div>
-    {DATA_PROFILES.filter(profile => {
-      return profile.id === Number(props.match.params.id)
-    }).map(profile => {
-      return (
-        <div key={profile.id}>
-          <h2>{profile.name}</h2>
-          {profile.title && <h4>{profile.title}</h4>}
-          {profile.bio && <p>{profile.bio}</p>}
-          <small>id: {profile._id}</small>
-        </div>
-      )
-    })}
-  </div>
-)
+  componentWillMount() {
+    const id = Number(this.props.match.params.id)
+    const USER_PROFILE = axios
+      .get(`${process.env.REACT_APP_API_URL}/api/users/${id}`)
+      .then(response => {
+        return response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    this.setState({
+      profile: USER_PROFILE
+    })
+  }
 
-export default Profile
+  render() {
+    const profile = this.state.profile
+    return (
+      <div>
+        <h2>{profile.name}</h2>
+        {profile.title && <h4>{profile.title}</h4>}
+        {profile.bio && <p>{profile.bio}</p>}
+        <small>_id: {profile._id}</small>
+      </div>
+    )
+  }
+}

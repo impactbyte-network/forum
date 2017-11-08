@@ -21,9 +21,7 @@ const helpers = {
         name: decoded.name
       }
     } else {
-      return {
-        message: "invalid_token"
-      }
+      return null
     }
   }
 }
