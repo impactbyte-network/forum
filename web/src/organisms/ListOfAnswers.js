@@ -1,16 +1,13 @@
 import React from "react"
 import {
+  Col,
   Card,
   CardBody,
   CardTitle,
   CardSubtitle,
-  CardText,
-  Button,
-  Row,
-  Col
+  CardText
 } from "reactstrap"
 
-import Link from "../atoms/Link"
 import LinkToQuestion from "../atoms/LinkToQuestion"
 import LinkToProfile from "../atoms/LinkToProfile"
 
@@ -32,6 +29,7 @@ const CardAnswer = props => (
       </CardTitle>
       <CardSubtitle>
         <h6>
+          Answered by{" "}
           <LinkToProfile user={props.question.answers[0].createdBy} />
         </h6>
       </CardSubtitle>
@@ -45,9 +43,7 @@ const CardAnswer = props => (
 const Home = () => (
   <Col xs={10}>
     {DATA_QUESTIONS.map(question => {
-      if (question.answers.length > 0) {
-        return <CardAnswer question={question} />
-      }
+      return question.answers.length > 0 && <CardAnswer question={question} />
     })}
   </Col>
 )

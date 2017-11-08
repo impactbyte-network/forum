@@ -1,18 +1,24 @@
 # Web
 
-## Development
+
+
+--------------------------------------------------------------------------------
+
+## Contributing
+
+### Development
 
 ```sh
 yarn start
 ```
 
-## Build
+### Build
 
 ```sh
 yarn build
 ```
 
-## Deploy
+### Deploy
 
 ```sh
 yarn deploy

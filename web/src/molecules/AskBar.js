@@ -1,5 +1,4 @@
 import React from "react"
-import { Col } from "reactstrap"
 import { Button, Form, FormGroup, Input } from "reactstrap"
 
 const USER = {
@@ -8,20 +7,23 @@ const USER = {
 }
 
 const Ask = () => (
-  <Col xs={8}>
-    <Form>
-      <span>{USER.name} asked</span>
-      <FormGroup>
-        <Input
-          type="text"
-          name="askText"
-          id="askText"
-          placeholder="What is your question?"
-        />
-      </FormGroup>
-      <Button>Ask Question</Button>
-    </Form>
-  </Col>
+  <Form>
+    <span>{USER.name} asked</span>
+    <FormGroup>
+      <Input
+        type="textarea"
+        name="askTextarea"
+        id="askTextarea"
+        placeholder="What is your question?"
+        onKeyDown={e => {
+          if (e.keyCode === 13 && !e.shiftKey) {
+            e.preventDefault()
+          }
+        }}
+      />
+    </FormGroup>
+    <Button color="primary">Ask Question</Button>
+  </Form>
 )
 
 export default Ask

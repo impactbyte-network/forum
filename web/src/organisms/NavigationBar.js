@@ -20,7 +20,7 @@ const Home = () => (
     }}
   >
     <Row>
-      <Col xs={8}>
+      <Col xs={12} md={7}>
         <Link to="/">LOGO</Link>
         <NavLink to="/welcome">Welcome</NavLink>
         <NavLink exact to="/">
@@ -29,7 +29,7 @@ const Home = () => (
         <NavLink to="/answer">Answer</NavLink>
       </Col>
 
-      <Col xs={4}>
+      <Col xs={12} md={5}>
         <NavLink to={`/profile/${USER._id}`}>Profile</NavLink>
         <NavLink to="/ask">Ask Question</NavLink>
         <NavLink to="/profiles">[P]</NavLink>

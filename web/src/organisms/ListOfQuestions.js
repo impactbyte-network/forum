@@ -1,18 +1,7 @@
 import React from "react"
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  CardText,
-  Button,
-  Row,
-  Col
-} from "reactstrap"
+import { Col, Card, CardBody, CardTitle } from "reactstrap"
 
-import Link from "../atoms/Link"
 import LinkToQuestion from "../atoms/LinkToQuestion"
-import LinkToProfile from "../atoms/LinkToProfile"
 
 import DATA_QUESTIONS from "../data/questions"
 
@@ -39,9 +28,7 @@ const CardQuestion = props => (
 const Home = () => (
   <Col xs={10}>
     {DATA_QUESTIONS.map(question => {
-      if (question.answers.length > 0) {
-        return <CardQuestion question={question} />
-      }
+      return question.answers.length > 0 && <CardQuestion question={question} />
     })}
   </Col>
 )
