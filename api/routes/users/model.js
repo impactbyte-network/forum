@@ -1,14 +1,19 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
+const AutoIncrement = require("mongoose-sequence")(mongoose)
 
-module.exports = mongoose.model(
-  "User",
-  new Schema({
-    email: String,
-    password: String,
-    name: String,
-    title: String,
-    bio: String,
-    role: String
-  })
-)
+const UserSchema = mongoose.Schema({
+  id: Number,
+  email: String,
+  password: String,
+  name: String,
+  title: String,
+  bio: String,
+  role: String
+})
+
+UserSchema.plugin(AutoIncrement, { inc_field: "id" })
+
+const UserModel = mongoose.model("User", UserSchema)
+
+module.exports = UserModel
