@@ -8,25 +8,32 @@ module.exports = {
     res.send(text)
   },
 
+  // SIGN UP WITH A NEW USER DATA
   signup: (req, res, next) => {
     const newUser = new User({
       email: req.body.email,
       password: req.body.password,
       name: req.body.name,
-      role: "user"
+      role: req.body.role || "user"
     })
 
     newUser.save(function(err) {
-      if (err) throw err
-
-      res.send({
-        success: true,
-        message: "New user signed up!",
-        user: newUser
-      })
+      if (err) {
+        res.send({
+          success: false,
+          message: "Sign up failed"
+        })
+      } else {
+        res.send({
+          success: true,
+          message: "Sign up success",
+          user: newUser
+        })
+      }
     })
   },
 
+  // LOGIN WITH PROVIDED USER DATA
   login: (req, res, next) => {
     const data = { email: req.body.email }
     const token = jwt.sign(data, process.env.SECRET, { expiresIn: "1d" })
@@ -34,6 +41,7 @@ module.exports = {
     res.send(token)
   },
 
+  // CHECK TOKEN FOR AUTHORIZATION
   checkToken: (req, res, next) => {
     const decoded = jwt.verify(req.body.token, process.env.SECRET)
 
