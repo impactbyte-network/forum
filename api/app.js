@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express")
 const path = require("path")
 const favicon = require("serve-favicon")
@@ -8,17 +9,15 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const jwt = require("jsonwebtoken") // used to create, sign, and verify tokens
 
-const config = require("./config") // get our config file
-
-mongoose.connect(config.database) // connect to MongoDB
+mongoose.connect(process.env.DATABASE) // connect to MongoDB
 
 const index = require("./routes/index")
+const auth = require("./routes/auth")
 const users = require("./routes/users")
 const questions = require("./routes/questions")
 
 const app = express()
 
-app.set("appSecret", config.secret)
 app.use(logger("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -26,6 +25,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "public")))
 
 app.use("/", index)
+app.use("/auth", auth)
 app.use("/users", users)
 app.use("/questions", questions)
 

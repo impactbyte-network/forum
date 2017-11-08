@@ -1,6 +1,9 @@
 module.exports = {
   get: (req, res, next) => {
     const text = `RESPONSE ROOT FROM ${req.path}`
-    res.send(text)
+    res.send({
+      message: text,
+      database: process.env.DATABASE
+    })
   }
 }
