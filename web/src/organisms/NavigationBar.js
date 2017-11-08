@@ -33,6 +33,7 @@ const Home = () => (
         <NavLink to="/ask">Ask Question</NavLink>
         <NavLink to="/profiles">[P]</NavLink>
         <NavLink to="/questions">[Q]</NavLink>
+        {USER && <NavLink to={`/welcome`}>Logout</NavLink>}
       </Col>
     </Row>
   </nav>
