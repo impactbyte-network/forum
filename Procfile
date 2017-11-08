@@ -1,1 +1,1 @@
-web: cd api && npm install && node index.js
+web: cd api && node index.js
