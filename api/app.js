@@ -10,7 +10,9 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const jwt = require("jsonwebtoken") // used to create, sign, and verify tokens
 
-mongoose.connect(process.env.DATABASE) // connect to MongoDB
+mongoose.connect(process.env.DATABASE, {
+  useMongoClient: true
+}) // connect to MongoDB
 
 const index = require("./routes/index")
 const auth = require("./routes/auth")
