@@ -2,15 +2,19 @@ import React from "react"
 import { Col, Form, FormGroup, Label, Input } from "reactstrap"
 import axios from "axios"
 
+const initialState = {
+  signupName: "",
+  signupEmail: "",
+  signupPassword: ""
+}
+
 export default class ColumnSignup extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      signupName: "",
-      signupEmail: "",
-      signupPassword: ""
-    }
+    this.state = initialState
   }
+
+  // HANDLE CHANGE IN SIGN UP FORM
 
   handleChange = event => {
     const name = event.target.name
@@ -20,6 +24,8 @@ export default class ColumnSignup extends React.Component {
       [name]: value
     })
   }
+
+  // HANDLE SUBMIT SIGN UP
 
   handleSubmit = event => {
     event.preventDefault()
@@ -33,14 +39,15 @@ export default class ColumnSignup extends React.Component {
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/signup`, payload)
       .then(response => {
-        console.log(response.data)
-        alert(`SUCCESS! ${JSON.stringify(response.data)}`)
-        // EMPTY OUT FORM INPUTS
+        alert(`SIGN UP SUCCESS!`)
+        this.setState(initialState)
       })
       .catch(error => {
         console.log(error)
       })
   }
+
+  // RENDER SIGN UP FORM
 
   render() {
     return (

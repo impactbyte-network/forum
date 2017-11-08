@@ -2,27 +2,33 @@ import React from "react"
 import { Col, Form, FormGroup, Label, Input } from "reactstrap"
 import axios from "axios"
 
-// import Link from "../atoms/Link"
+import Link from "../atoms/Link"
+
+import helpers from "../helpers"
+
+const initialState = {
+  loginEmail: "",
+  loginPassword: ""
+}
 
 export default class ColumnLogin extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      loginName: "",
-      loginEmail: "",
-      loginPassword: ""
-    }
+    this.state = initialState
   }
+
+  // HANDLE CHANGE IN LOGIN FORM
 
   handleChange = event => {
     const name = event.target.name
     const value = event.target.value
 
     this.setState({
-      ...this.state,
       [name]: value
     })
   }
+
+  // HANDLE SUBMIT LOGIN
 
   handleSubmit = event => {
     event.preventDefault()
@@ -35,18 +41,15 @@ export default class ColumnLogin extends React.Component {
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/login`, payload)
       .then(response => {
-        console.log(response.data)
-
-        alert(`SUCCESS! ${JSON.stringify(response.data)}`)
-
-        window.localStorage.setItem("user", response.data)
-
-        // EMPTY OUT FORM INPUTS
+        helpers.setToken(response.data)
+        this.setState(initialState)
       })
       .catch(error => {
         console.log(error)
       })
   }
+
+  // RENDER LOGIN FORM
 
   render() {
     return (
@@ -73,9 +76,9 @@ export default class ColumnLogin extends React.Component {
               onChange={this.handleChange}
             />
           </FormGroup>
-          {/* <FormGroup>
+          <FormGroup>
             <Link to="/forgot">Forgot password?</Link>
-          </FormGroup> */}
+          </FormGroup>
           <input type="submit" value="Login" />
         </Form>
       </Col>
