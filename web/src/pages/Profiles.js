@@ -9,7 +9,7 @@ export default class Profiles extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      profiles: []
+      users: []
     }
   }
 
@@ -17,10 +17,9 @@ export default class Profiles extends React.Component {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/users`)
       .then(response => {
-        const profiles = response.data
-        console.log(profiles)
+        console.log(response.data)
         this.setState({
-          profiles: profiles
+          users: response.data
         })
       })
       .catch(error => {
@@ -29,14 +28,14 @@ export default class Profiles extends React.Component {
   }
 
   render() {
-    const profiles = this.state.profiles
+    const users = this.state.users
     return (
       <Layout>
         <ul>
-          {profiles.map(profile => {
+          {users.map(user => {
             return (
-              <li key={profile.id}>
-                <LinkToProfile user={profile} />{" "}
+              <li key={user.id}>
+                <LinkToProfile user={user} />{" "}
               </li>
             )
           })}
