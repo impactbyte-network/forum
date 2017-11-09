@@ -71,24 +71,23 @@ module.exports = {
   // CHECK TOKEN FOR AUTHORIZATION
 
   checkToken: (req, res, next) => {
-    const decoded = jwt.verify(req.body.token, process.env.SECRET)
+    const token = req.headers.authorization || req.body.token
+    const decoded = jwt.verify(token, process.env.SECRET)
+
     if (decoded) {
       res.send(decoded)
     } else {
-      res.send({
-        message: "TOKEN IS INVALID"
-      })
+      res.send({ message: "TOKEN IS INVALID" })
     }
   },
 
   isAuthorized: (req, res, next) => {
     const decoded = jwt.verify(req.headers.authorization, process.env.SECRET)
+
     if (decoded) {
       next()
     } else {
-      res.send({
-        message: "YOU ARE NOT AUTHORIZED"
-      })
+      res.send({ message: "YOU ARE NOT AUTHORIZED" })
     }
   }
 }
