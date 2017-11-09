@@ -37,8 +37,7 @@ const NavigationBar = props => {
           <Col xs={12} md={5}>
             <NavLink to={`/profile/${USER.id}`}>Profile</NavLink>
             <NavLink to="/ask">Ask Question</NavLink>
-            <NavLink to="/profiles">[P]</NavLink>
-            <NavLink to="/questions">[Q]</NavLink>
+            <NavLink to="/profiles">Profiles</NavLink>
             <NavLink to={`/welcome`}>Logout</NavLink>
           </Col>
         )}
