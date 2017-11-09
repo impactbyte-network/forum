@@ -7,6 +7,7 @@ module.exports = {
   get: (req, res, next) => {
     Question.find({})
       .populate("createdBy")
+      .populate("answers.createdBy")
       .exec((err, questions) => {
         if (err) res.send(err)
         else res.send(questions)

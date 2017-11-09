@@ -27,7 +27,7 @@ export default class ListOfAnswers extends React.Component {
 
   render() {
     return (
-      <Col xs={10}>
+      <Col xs={8}>
         {this.state.questions.map(question => {
           return (
             question.answers.length > 0 && (
