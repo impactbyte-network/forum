@@ -4,12 +4,12 @@ const User = require("../users/model")
 
 module.exports = {
   destroy: (req, res, next) => {
-    mongoose.connection.db.dropCollection("foo", (err, result) => {
+    mongoose.connection.db.dropCollection("users", (err, result) => {
       if (err) res.send(err)
       else res.send("Collection users dropped")
     })
   },
-  
+
   get: (req, res, next) => {
     const users = User.find({}, (err, users) => {
       if (err) res.send(err)
