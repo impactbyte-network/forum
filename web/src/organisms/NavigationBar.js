@@ -12,7 +12,7 @@ const USER = helpers.decodeToken()
 
 // -----------------------------------------------------------------------------
 
-const Home = () => (
+const NavigationBar = () => (
   <nav
     style={{
       borderBottom: "1px solid black"
@@ -49,4 +49,4 @@ const Home = () => (
   </nav>
 )
 
-export default Home
+export default NavigationBar

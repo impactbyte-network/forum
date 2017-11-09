@@ -12,7 +12,6 @@ export default class Profiles extends React.Component {
   }
 
   componentWillMount() {
-    const id = Number(this.props.match.params.id)
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/users`)
       .then(response => {
