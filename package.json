@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node api/index",
-    "dev": "nodemon api/index",
+    "start": "cd api && npm install && npm start",
     "deploy": "git push heroku master"
   },
   "engines": {
