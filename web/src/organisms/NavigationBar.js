@@ -19,7 +19,7 @@ const NavigationBar = props => {
         {!USER && (
           <Col xs={12} md={7}>
             <Link to="/welcome">LOGO</Link>
-            <NavLink to="/welcome">Login</NavLink>
+            <NavLink to="/welcome">Sign Up / Login</NavLink>
           </Col>
         )}
 
