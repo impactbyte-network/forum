@@ -1,20 +1,25 @@
+const User = require("../users/model")
 const Question = require("./model")
 
 const helpers = require("../helpers")
 
 module.exports = {
   get: (req, res, next) => {
-    Question.find({}, (err, questions) => {
-      if (err) res.send(err)
-      else res.send(questions)
-    })
+    Question.find({})
+      .populate("createdBy")
+      .exec((err, questions) => {
+        if (err) res.send(err)
+        else res.send(questions)
+      })
   },
 
   getOne: (req, res, next) => {
-    Question.findOne({ id: req.params.id }, (err, question) => {
-      if (err) res.send(err)
-      else res.send(question)
-    })
+    Question.findOne({ id: req.params.id })
+      .populate("createdBy")
+      .exec((err, question) => {
+        if (err) res.send(err)
+        else res.send(question)
+      })
   },
 
   post: (req, res, next) => {
