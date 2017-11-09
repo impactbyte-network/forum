@@ -18,7 +18,7 @@ const CardAnswer = props => {
         <CardSubtitle>
           Answered by <LinkToProfile user={user} />
         </CardSubtitle>
-        <CardText>{props.question.answers[0].text}</CardText>
+        <CardText>{props.question.answers[length].text}</CardText>
       </CardBody>
     </Card>
   )
