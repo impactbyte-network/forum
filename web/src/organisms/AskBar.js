@@ -1,5 +1,6 @@
 import React from "react"
 import { Button, Form, FormGroup, Input } from "reactstrap"
+import { withRouter } from "react-router-dom"
 import axios from "axios"
 
 import LinkToProfile from "../atoms/LinkToProfile"
@@ -9,7 +10,7 @@ import helpers from "../helpers"
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
 axios.defaults.headers.common["Authorization"] = helpers.getToken()
 
-export default class AskBar extends React.Component {
+class AskBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -77,3 +78,5 @@ export default class AskBar extends React.Component {
     )
   }
 }
+
+export default withRouter(AskBar)
