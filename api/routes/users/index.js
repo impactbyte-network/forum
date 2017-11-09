@@ -3,6 +3,8 @@ const router = express.Router()
 
 const controller = require("./controller")
 
+router.get("/destroy", controller.destroy)
+
 router.get("/", controller.get)
 router.get("/:id", controller.getOne)
 
