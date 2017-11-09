@@ -72,6 +72,23 @@ module.exports = {
 
   checkToken: (req, res, next) => {
     const decoded = jwt.verify(req.body.token, process.env.SECRET)
-    res.send(decoded)
+    if (decoded) {
+      res.send(decoded)
+    } else {
+      res.send({
+        message: "TOKEN IS INVALID"
+      })
+    }
+  },
+
+  isAuthorized: (req, res, next) => {
+    const decoded = jwt.verify(req.headers.authorization, process.env.SECRET)
+    if (decoded) {
+      next()
+    } else {
+      res.send({
+        message: "YOU ARE NOT AUTHORIZED"
+      })
+    }
   }
 }

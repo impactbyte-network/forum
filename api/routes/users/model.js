@@ -12,7 +12,7 @@ const UserSchema = mongoose.Schema({
   role: String
 })
 
-UserSchema.plugin(AutoIncrement, { inc_field: "id" })
+UserSchema.plugin(AutoIncrement, { id: "user_id", inc_field: "id" })
 
 const UserModel = mongoose.model("User", UserSchema)
 
