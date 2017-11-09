@@ -1,6 +1,8 @@
 import React from "react"
 import axios from "axios"
 
+import Layout from "../templates/Layout"
+
 export default class Profile extends React.Component {
   constructor(props) {
     super(props)
@@ -28,13 +30,15 @@ export default class Profile extends React.Component {
   render() {
     const profile = this.state.profile
     return (
-      <div>
-        <h2>{profile.name}</h2>
-        {profile.title && <h4>{profile.title}</h4>}
-        {profile.bio && <p>{profile.bio}</p>}
-        <small>id: {profile.id}</small>
-        <small>_id: {profile._id}</small>
-      </div>
+      <Layout>
+        <div>
+          <h2>{profile.name}</h2>
+          {profile.title && <h4>{profile.title}</h4>}
+          {profile.bio && <p>{profile.bio}</p>}
+          <small>id: {profile.id}</small>
+          <small>_id: {profile._id}</small>
+        </div>
+      </Layout>
     )
   }
 }

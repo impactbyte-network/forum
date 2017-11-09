@@ -1,6 +1,8 @@
 import React from "react"
 import { Row, Col } from "reactstrap"
 
+import Layout from "../templates/Layout"
+
 import ColumnSignup from "../organisms/ColumnSignup"
 import ColumnLogin from "../organisms/ColumnLogin"
 
@@ -13,28 +15,30 @@ export default class Welcome extends React.Component {
 
   render() {
     return (
-      <div>
-        <Row className="text-center" id="row-logo">
-          <Col>
-            <h1>
-              <img src="" alt="LOGO" />
-            </h1>
-          </Col>
-        </Row>
+      <Layout>
+        <div>
+          <Row className="text-center" id="row-logo">
+            <Col>
+              <h1>
+                <img src="" alt="LOGO" />
+              </h1>
+            </Col>
+          </Row>
 
-        <Row className="text-center" id="row-tagline">
-          <Col>
-            <h2>TAGLINE AND DESCRIPTION</h2>
-          </Col>
-        </Row>
+          <Row className="text-center" id="row-tagline">
+            <Col>
+              <h2>TAGLINE AND DESCRIPTION</h2>
+            </Col>
+          </Row>
 
-        <hr />
+          <hr />
 
-        <Row className="center" id="row-auth">
-          <ColumnSignup />
-          <ColumnLogin />
-        </Row>
-      </div>
+          <Row className="center" id="row-auth">
+            <ColumnSignup />
+            <ColumnLogin />
+          </Row>
+        </div>
+      </Layout>
     )
   }
 }

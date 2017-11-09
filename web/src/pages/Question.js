@@ -1,6 +1,8 @@
 import React from "react"
 import { Col } from "reactstrap"
 
+import Layout from "../templates/Layout"
+
 import QuestionCard from "../organisms/QuestionCard"
 
 import DATA_QUESTIONS from "../data/questions"
@@ -13,27 +15,29 @@ const Question = props => {
   const answers = question[0].answers || 0
 
   return (
-    <Col>
-      <QuestionCard question={question[0]} />
+    <Layout>
+      <Col>
+        <QuestionCard question={question[0]} />
 
-      <hr />
+        <hr />
 
-      <div>
-        {answers.length ? `${answers.length} answers` : `No answer yet`}
-      </div>
+        <div>
+          {answers.length ? `${answers.length} answers` : `No answer yet`}
+        </div>
 
-      <hr />
+        <hr />
 
-      {answers.map(answer => {
-        return (
-          <div key={answer._id}>
-            <h6>{answer.createdBy.name}</h6>
-            <p>{answer.text}</p>
-            <hr />
-          </div>
-        )
-      })}
-    </Col>
+        {answers.map(answer => {
+          return (
+            <div key={answer._id}>
+              <h6>{answer.createdBy.name}</h6>
+              <p>{answer.text}</p>
+              <hr />
+            </div>
+          )
+        })}
+      </Col>
+    </Layout>
   )
 }
 

@@ -1,5 +1,11 @@
 import React from "react"
 
-const NotFound = () => <div>PAGE NOT FOUND!</div>
+import Layout from "../templates/Layout"
+
+const NotFound = () => (
+  <Layout>
+    <h3>PAGE NOT FOUND!</h3>
+  </Layout>
+)
 
 export default NotFound

@@ -1,6 +1,8 @@
 import React from "react"
 import axios from "axios"
 
+import Layout from "../templates/Layout"
+
 import LinkToProfile from "../atoms/LinkToProfile"
 
 export default class Profiles extends React.Component {
@@ -29,15 +31,17 @@ export default class Profiles extends React.Component {
   render() {
     const profiles = this.state.profiles
     return (
-      <ul>
-        {profiles.map(profile => {
-          return (
-            <li key={profile.id}>
-              <LinkToProfile user={profile} />{" "}
-            </li>
-          )
-        })}
-      </ul>
+      <Layout>
+        <ul>
+          {profiles.map(profile => {
+            return (
+              <li key={profile.id}>
+                <LinkToProfile user={profile} />{" "}
+              </li>
+            )
+          })}
+        </ul>
+      </Layout>
     )
   }
 }
