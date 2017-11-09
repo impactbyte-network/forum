@@ -1,25 +1,9 @@
 import React from "react"
-import { Col, Card, CardBody, CardTitle } from "reactstrap"
+import { Col } from "reactstrap"
 
-import LinkToQuestion from "../atoms/LinkToQuestion"
+import CardQuestion from "../molecules/CardQuestion"
 
 import DATA_QUESTIONS from "../data/questions"
-
-// -----------------------------------------------------------------------------
-
-const CardQuestion = props => (
-  <Card
-    style={{
-      margin: "10px"
-    }}
-  >
-    <CardBody key={props.question.id}>
-      <CardTitle>
-        <LinkToQuestion question={props.question} />
-      </CardTitle>
-    </CardBody>
-  </Card>
-)
 
 // -----------------------------------------------------------------------------
 
