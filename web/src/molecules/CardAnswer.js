@@ -7,7 +7,8 @@ import LinkToProfile from "../atoms/LinkToProfile"
 const CardAnswer = props => {
   const question = props.question
   const length = props.question.answers.length - 1
-  const user = props.question.answers[length].createdBy
+  const answer = props.question.answers[length]
+  const user = answer.createdBy
 
   return (
     <Card className="m-2">
@@ -18,7 +19,7 @@ const CardAnswer = props => {
         <CardSubtitle>
           Answered by <LinkToProfile user={user} />
         </CardSubtitle>
-        <CardText>{props.question.answers[length].text}</CardText>
+        <CardText>{answer.text}</CardText>
       </CardBody>
     </Card>
   )
