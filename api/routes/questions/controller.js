@@ -4,6 +4,13 @@ const Question = require("./model")
 const helpers = require("../helpers")
 
 module.exports = {
+  destroy: (req, res, next) => {
+    mongoose.connection.db.dropCollection("questions", (err, result) => {
+      if (err) res.send(err)
+      else res.send("Collection users dropped")
+    })
+  },
+
   get: (req, res, next) => {
     Question.find({})
       .populate("createdBy")
