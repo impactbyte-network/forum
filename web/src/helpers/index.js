@@ -19,6 +19,7 @@ const helpers = {
 
     if (token !== "") {
       const decoded = jwt_decode(token)
+      // console.log(decoded)
       return {
         _id: decoded._id,
         id: decoded.id,

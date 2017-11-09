@@ -16,23 +16,28 @@ import Questions from "./pages/Questions"
 
 // import requireAuth from "./templates/requireAuth"
 
-// const USER = helpers.decodeToken()
+import helpers from "./helpers"
 
-const App = () => (
-  <Router>
-    <Switch>
-      <Route path="/welcome" component={Welcome} />
-      {/* <Route exact path="/" handler={requireAuth(Home)} name="home" /> */}
-      <Route exact path="/" component={Home} />
-      <Route path="/answer" component={Answer} />
-      <Route path="/question/:id" component={Question} />
-      <Route path="/profile/:id" component={Profile} />
-      <Route path="/ask" component={Ask} />
-      <Route path="/profiles" component={Profiles} />
-      <Route path="/questions" component={Questions} />
-      <Route component={NotFound} />
-    </Switch>
-  </Router>
-)
+const user = helpers.decodeToken()
+
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/welcome" component={Welcome} />
+        {/* <Route exact path="/" handler={requireAuth(Home)} name="home" /> */}
+        <Route exact path="/" component={Home} />
+        <Route path="/answer" component={Answer} />
+        <Route path="/question/:id" component={Question} />
+        <Route path="/profile/:id" component={Profile} />
+        {/* <Route path="/ask" handler={requireAuth(Ask)} name="ask" /> */}
+        <Route path="/ask" render={() => <Ask user={user} />} />
+        <Route path="/profiles" component={Profiles} />
+        <Route path="/questions" component={Questions} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
+  )
+}
 
 export default App

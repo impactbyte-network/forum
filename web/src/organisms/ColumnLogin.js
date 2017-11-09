@@ -43,10 +43,10 @@ class ColumnLogin extends React.Component {
       .post(`${process.env.REACT_APP_API_URL}/auth/login`, payload)
       .then(response => {
         if (response.data.token) {
-          console.log(response.data)
           helpers.setToken(response.data.token)
           this.setState(initialState)
           // NOTIFY VISITOR
+          // console.log(response.data)
           alert(`Login success!`)
           // REDIRECT TO HOME
           this.props.history.push("/")

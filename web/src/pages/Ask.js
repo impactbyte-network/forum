@@ -3,14 +3,18 @@ import { Col } from "reactstrap"
 
 import Layout from "../templates/Layout"
 
-import AskBar from "../molecules/AskBar"
+import AskBar from "../organisms/AskBar"
 
-const Ask = () => (
-  <Layout>
-    <Col xs={12} lg={8}>
-      <AskBar />
-    </Col>
-  </Layout>
-)
+const Ask = props => {
+  const user = props.user
+  
+  return (
+    <Layout>
+      <Col xs={12} lg={8}>
+        <AskBar user={user} />
+      </Col>
+    </Layout>
+  )
+}
 
 export default Ask
