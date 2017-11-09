@@ -25,7 +25,6 @@ export default class Question extends React.Component {
     axios
       .get(`/api/questions/${this.state.id}`)
       .then(response => {
-        console.log(response.data)
         this.setState({
           question: response.data,
           answers: response.data.answers
@@ -37,14 +36,14 @@ export default class Question extends React.Component {
       })
   }
 
-  render(props) {
+  render() {
     const question = this.state.question
     const answers = this.state.answers
 
     return (
       <Layout>
         <Col>
-          {/* <QuestionCard question={question} /> */}
+          {question.createdBy && <QuestionCard question={question} />}
           <hr />
           <div>
             {answers.length ? `${answers.length} answers` : `No answer yet`}

@@ -8,8 +8,14 @@ import {
   FormGroup,
   Input
 } from "reactstrap"
+import axios from "axios"
 
 import LinkToProfile from "../atoms/LinkToProfile"
+
+import helpers from "../helpers"
+
+axios.defaults.baseURL = process.env.REACT_APP_API_URL
+axios.defaults.headers.common["Authorization"] = helpers.getToken()
 
 const USER = {
   id: 0,
