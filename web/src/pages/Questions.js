@@ -1,23 +1,42 @@
 import React from "react"
+import axios from "axios"
 
 import Layout from "../templates/Layout"
 
 import LinkToQuestion from "../atoms/LinkToQuestion"
 
-import DATA_QUESTIONS from "../data/questions"
+export default class Questions extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      questions: []
+    }
+  }
 
-const Questions = () => (
-  <Layout>
-    <ul>
-      {DATA_QUESTIONS.map(question => {
-        return (
-          <li>
-            <LinkToQuestion question={question} />
-          </li>
-        )
-      })}
-    </ul>
-  </Layout>
-)
+  componentWillMount() {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/questions`)
+      .then(response => {
+        this.setState({ questions: response.data })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
-export default Questions
+  render() {
+    return (
+      <Layout>
+        <ul>
+          {this.state.questions.map(question => {
+            return (
+              <li key={question.id}>
+                <LinkToQuestion question={question} />
+              </li>
+            )
+          })}
+        </ul>
+      </Layout>
+    )
+  }
+}
