@@ -12,7 +12,7 @@ import {
 import LinkToProfile from "../atoms/LinkToProfile"
 
 const USER = {
-  _id: 0,
+  id: 0,
   name: "Administrator"
 }
 

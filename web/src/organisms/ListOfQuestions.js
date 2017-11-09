@@ -13,7 +13,7 @@ const CardQuestion = props => (
       margin: "10px"
     }}
   >
-    <CardBody key={props.question._id}>
+    <CardBody key={props.question.id}>
       <CardTitle>
         <LinkToQuestion question={props.question} />
       </CardTitle>
@@ -28,7 +28,7 @@ const Home = () => (
     {DATA_QUESTIONS.map(question => {
       return (
         question.answers.length > 0 && (
-          <CardQuestion key={question._id} question={question} />
+          <CardQuestion key={question.id} question={question} />
         )
       )
     })}

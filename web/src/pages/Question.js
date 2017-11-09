@@ -9,10 +9,10 @@ import DATA_QUESTIONS from "../data/questions"
 
 const Question = props => {
   const question = DATA_QUESTIONS.filter(question => {
-    return question._id === Number(props.match.params.id)
+    return question.id === Number(props.match.params.id)
   })
 
-  const answers = question[0].answers || 0
+  const answers = question[0].answers
 
   return (
     <Layout>
@@ -29,7 +29,7 @@ const Question = props => {
 
         {answers.map(answer => {
           return (
-            <div key={answer._id}>
+            <div key={answer.id}>
               <h6>{answer.createdBy.name}</h6>
               <p>{answer.text}</p>
               <hr />

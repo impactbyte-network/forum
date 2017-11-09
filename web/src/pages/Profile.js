@@ -36,7 +36,6 @@ export default class Profile extends React.Component {
           {profile.title && <h4>{profile.title}</h4>}
           {profile.bio && <p>{profile.bio}</p>}
           <small>id: {profile.id}</small>
-          <small>_id: {profile._id}</small>
         </div>
       </Layout>
     )
