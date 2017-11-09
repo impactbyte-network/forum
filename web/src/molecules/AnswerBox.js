@@ -17,20 +17,45 @@ import helpers from "../helpers"
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
 axios.defaults.headers.common["Authorization"] = helpers.getToken()
 
-const USER = {
-  id: 0,
-  name: "Administrator"
-}
-
 export default class AnswerCard extends React.Component {
   constructor(props) {
     super(props)
-    this.toggle = this.toggle.bind(this)
-    this.state = { isOpen: false }
+    this.state = {
+      isOpen: false,
+      user: helpers.decodeToken(),
+      question: this.props.question,
+      answerTextarea: ""
+    }
   }
 
-  toggle() {
+  toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen })
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+
+    const payload = {
+      user: this.state.user,
+      text: this.state.answerTextarea
+    }
+
+    axios
+      .post(`/api/questions/${this.state.question.id}/answers`, payload)
+      .then(response => {
+        console.log(response.data)
+        alert(`Answer success!`)
+      })
+      .catch(error => {
+        console.log(error)
+        alert(`${error}`)
+      })
   }
 
   render() {
@@ -39,17 +64,18 @@ export default class AnswerCard extends React.Component {
         <Button
           color={this.state.isOpen ? "secondary" : "primary"}
           size="sm"
-          onClick={this.toggle}
+          onClick={this.toggleCollapse}
           style={{ marginBottom: "1rem" }}
         >
           Answer
         </Button>
+
         <Collapse isOpen={this.state.isOpen}>
           <Card>
             <CardBody>
-              <Form>
+              <Form onSubmit={this.handleSubmit}>
                 <h6>
-                  <LinkToProfile user={USER} /> will answer
+                  <LinkToProfile user={this.state.user} /> will answer
                 </h6>
                 <FormGroup>
                   <Input
@@ -57,6 +83,8 @@ export default class AnswerCard extends React.Component {
                     name="answerTextarea"
                     id="answerTextarea"
                     placeholder="Write your answer"
+                    value={this.state.answerTextarea}
+                    onChange={this.handleChange}
                   />
                 </FormGroup>
                 <Button color="primary" size="sm">

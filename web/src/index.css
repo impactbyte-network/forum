@@ -5,9 +5,8 @@ body {
   font-family: sans-serif;
 }
 
-a {
+#row-navigation a {
   margin: 5px;
-  color: black;
 }
 
 a.active {

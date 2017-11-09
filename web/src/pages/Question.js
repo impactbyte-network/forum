@@ -8,6 +8,8 @@ import QuestionCard from "../organisms/QuestionCard"
 
 import helpers from "../helpers"
 
+import LinkToProfile from "../atoms/LinkToProfile"
+
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
 axios.defaults.headers.common["Authorization"] = helpers.getToken()
 
@@ -48,16 +50,18 @@ export default class Question extends React.Component {
           <div>
             {answers.length ? `${answers.length} answers` : `No answer yet`}
           </div>
-          {/* <hr />
+          <hr />
           {answers.map(answer => {
             return (
-              <div key={answer.id}>
-                <h6>{answer.createdBy.name}</h6>
+              <div key={answer._id}>
+                <h6>
+                  <LinkToProfile user={answer.createdBy} /> answered
+                </h6>
                 <p>{answer.text}</p>
                 <hr />
               </div>
             )
-          })} */}
+          })}
         </Col>
       </Layout>
     )

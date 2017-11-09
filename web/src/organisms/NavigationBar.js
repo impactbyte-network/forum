@@ -15,7 +15,7 @@ const NavigationBar = props => {
         borderBottom: "1px solid black"
       }}
     >
-      <Row>
+      <Row id="row-navigation">
         {!USER && (
           <Col xs={12} md={7}>
             <Link to="/welcome">LOGO</Link>
