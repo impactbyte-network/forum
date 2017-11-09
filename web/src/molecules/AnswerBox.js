@@ -17,15 +17,17 @@ import helpers from "../helpers"
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
 axios.defaults.headers.common["Authorization"] = helpers.getToken()
 
+const initialState = {
+  isOpen: false,
+  user: helpers.decodeToken(),
+  question: {},
+  answerTextarea: ""
+}
+
 export default class AnswerCard extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      isOpen: false,
-      user: helpers.decodeToken(),
-      question: this.props.question,
-      answerTextarea: ""
-    }
+    this.state = initialState
   }
 
   toggleCollapse = () => {
@@ -49,13 +51,18 @@ export default class AnswerCard extends React.Component {
     axios
       .post(`/api/questions/${this.state.question.id}/answers`, payload)
       .then(response => {
-        console.log(response.data)
+        this.setState(initialState)
         alert(`Answer success!`)
       })
       .catch(error => {
-        console.log(error)
         alert(`${error}`)
       })
+  }
+
+  componentWillMount() {
+    this.setState({
+      question: this.props.question
+    })
   }
 
   render() {
