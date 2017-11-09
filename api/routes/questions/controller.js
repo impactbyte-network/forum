@@ -16,6 +16,7 @@ module.exports = {
   getOne: (req, res, next) => {
     Question.findOne({ id: req.params.id })
       .populate("createdBy")
+      .populate("answers.createdBy")
       .exec((err, question) => {
         if (err) res.send(err)
         else res.send(question)

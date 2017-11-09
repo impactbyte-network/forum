@@ -10,6 +10,7 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const jwt = require("jsonwebtoken") // used to create, sign, and verify tokens
 
+mongoose.Promise = global.Promise
 mongoose.connect(process.env.DATABASE, {
   useMongoClient: true
 }) // connect to MongoDB

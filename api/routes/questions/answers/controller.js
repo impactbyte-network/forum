@@ -8,7 +8,9 @@ module.exports = {
     res.send("GET ANSWERS")
   },
 
-  getOne: (req, res, next) => {},
+  getOne: (req, res, next) => {
+    res.send("GET ONE ANSWER")
+  },
 
   post: (req, res, next) => {
     const token = req.headers.authorization || req.body.token
@@ -32,7 +34,7 @@ module.exports = {
           err
             ? res.send(err)
             : res.send({
-                message: "New question saved",
+                message: "New answer saved in selected question",
                 data: newAnswer
               })
         }
