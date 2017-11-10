@@ -5,6 +5,7 @@ const helpers = require("../helpers")
 
 module.exports = {
   destroy: (req, res, next) => {
+    console.log("DESTROYING")
     mongoose.connection.db.dropCollection("questions", (err, result) => {
       if (err) res.send(err)
       else res.send("Collection questions dropped")
@@ -13,8 +14,8 @@ module.exports = {
 
   get: (req, res, next) => {
     Question.find({})
-      .populate("createdBy")
-      .populate("answers.createdBy")
+      .populate("createdBy", "-password")
+      .populate("answers.createdBy", "-password")
       .exec((err, questions) => {
         if (err) res.send(err)
         else res.send(questions)
@@ -23,8 +24,8 @@ module.exports = {
 
   getOne: (req, res, next) => {
     Question.findOne({ id: req.params.id })
-      .populate("createdBy")
-      .populate("answers.createdBy")
+      .populate("createdBy", "-password")
+      .populate("answers.createdBy", "-password")
       .exec((err, question) => {
         if (err) res.send(err)
         else res.send(question)

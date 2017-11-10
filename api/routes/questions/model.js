@@ -10,6 +10,7 @@ const QuestionSchema = mongoose.Schema({
   },
   answers: [
     {
+      id: Number,
       text: String,
       createdBy: {
         type: Schema.Types.ObjectId,
@@ -25,7 +26,7 @@ QuestionSchema.plugin(AutoIncrement, {
 })
 QuestionSchema.plugin(AutoIncrement, {
   id: "question_answer_id",
-  inc_field: "id"
+  inc_field: "answers.id"
 })
 
 const QuestionModel = mongoose.model("Question", QuestionSchema)

@@ -30,8 +30,6 @@ mongo
 
 ## REST API
 
-Root: `/api`
-
 ### Auth
 
 Method | Endpoint | Description
@@ -42,6 +40,8 @@ POST   | `/auth/check`  | Check token (public)
 
 ### Users
 
+Root: `/api`
+
 Method | Endpoint | Description
 -------|----------|------------
 GET    | `/users`     | Get all (public)
@@ -50,6 +50,8 @@ DELETE | `/users/:id` | Delete one (only admin/authenticated)
 PUT    | `/users/:id` | Update one (only authenticated)
 
 ### Questions
+
+Root: `/api`
 
 Method | Endpoint | Description
 -------|----------|------------
@@ -61,8 +63,8 @@ PUT    | `/questions/:id` | Update one (only question creator)
 
 Method | Endpoint | Description
 -------|----------|------------
-GET    | `/questions/:q_id/answers`       | Get all answers (public)
-GET    | `/questions/:q_id/answers/:a_id` | Get one answer (public)
-POST   | `/questions/:q_id/answers`       | Post one answer (only authenticated)
-DELETE | `/questions/:q_id/answers/:a_id` | Delete one (only question creator)
-PUT    | `/questions/:q_id/answers/:a_id` | Update one (only question creator)
+GET    | `/questions/:id/answers`       | Get all answers (public)
+GET    | `/questions/:id/answers/:a_id` | Get one answer (public)
+POST   | `/questions/:id/answers`       | Post one answer (only authenticated)
+DELETE | `/questions/:id/answers/:a_id` | Delete one (only question creator)
+PUT    | `/questions/:id/answers/:a_id` | Update one (only question creator)

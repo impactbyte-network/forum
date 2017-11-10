@@ -11,10 +11,12 @@ module.exports = {
   },
 
   get: (req, res, next) => {
-    const users = User.find({}, (err, users) => {
-      if (err) res.send(err)
-      else res.send(users)
-    })
+    User.find({})
+      .select("-password -role")
+      .exec((err, users) => {
+        if (err) res.send(err)
+        else res.send(users)
+      })
   },
 
   getOne: (req, res, next) => {

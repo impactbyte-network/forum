@@ -3,13 +3,21 @@ const Schema = mongoose.Schema
 const AutoIncrement = require("mongoose-sequence")(mongoose)
 
 const UserSchema = mongoose.Schema({
-  id: Number,
-  email: String,
-  password: String,
+  email: {
+    type: String,
+    unique: true
+  },
+  password: {
+    type: String,
+    select: false
+  },
   name: String,
   title: String,
   bio: String,
-  role: String
+  role: {
+    type: String,
+    select: false
+  }
 })
 
 UserSchema.plugin(AutoIncrement, { id: "user_id", inc_field: "id" })

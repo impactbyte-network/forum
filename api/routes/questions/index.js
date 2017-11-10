@@ -4,7 +4,7 @@ const router = express.Router()
 const question = require("./controller")
 const answer = require("./answers/controller")
 
-router.get("/destroy", question.destroy)
+router.delete("/destroy", question.destroy)
 
 router.get("/", question.get)
 router.get("/:id", question.getOne)

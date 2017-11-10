@@ -18,7 +18,7 @@ module.exports = {
       role: req.body.role || "user"
     })
 
-    newUser.save(function(err) {
+    newUser.save(err => {
       if (err) {
         res.send({
           success: false,
@@ -58,7 +58,9 @@ module.exports = {
             name: user.name,
             email: user.email
           }
-          const token = jwt.sign(data, process.env.SECRET, { expiresIn: "1d" })
+          const token = jwt.sign(data, process.env.SECRET, {
+            expiresIn: "365d"
+          })
           res.send({
             token: token,
             data: data
