@@ -1,9 +1,9 @@
 # [Impact Byte Forum](https://github.com/impactbyte/forum)
 
-Site | URL
------|----
-Web  | https://forum.impactbyte.com
-API  | https://forum-api.impactbyte.com
+| Site | URL
+| -----|----
+| Web  | https://forum.impactbyte.com
+| API  | https://forum-api.impactbyte.com
 
 Forum is a simple clone of [Quora](https://quora.com).
 
